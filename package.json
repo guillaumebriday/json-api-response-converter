@@ -1,0 +1,33 @@
+{
+  "name": "json-api-response-converter",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "git@github.com:guillaumebriday/json-api-response-converter.git",
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "homepage": "https://github.com/guillaumebriday/json-api-response-converter",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test"
+    }
+  },
+  "scripts": {
+    "lint": "eslint --ext .js .",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@types/jest": "^24.0.18",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.7",
+    "jest": "^24.9.0"
+  }
+}
