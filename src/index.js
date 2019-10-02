@@ -31,7 +31,7 @@ export default class {
     return {
       id: object.id,
       ...object.attributes,
-      ...this.formattedRelationships(object)
+      ...this.formatRelationships(object)
     }
   }
 
@@ -39,7 +39,7 @@ export default class {
    * It find and format relationships for an object
    * @param {Object} object
    */
-  formattedRelationships (object) {
+  formatRelationships (object) {
     if (!object.relationships || !this.included) {
       return {}
     }
