@@ -1,4 +1,4 @@
-export default class JsonApiConverter {
+export default class {
   constructor (response) {
     this.data = response.data
     this.included = response.included
