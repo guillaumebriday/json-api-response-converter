@@ -46,6 +46,7 @@ export default class JsonApiConverter {
 
     const relationships = Object.entries(object.relationships).map(([key, { data }]) => {
       data = Array.isArray(data) ? data : [data]
+      data = data.filter(Boolean)
 
       const values = data.map((child) => {
         if (!child) {
@@ -55,13 +56,17 @@ export default class JsonApiConverter {
         const object = this.findRelationship(child)
 
         return object ? this.formatObject(object) : null
-      })
+      }).filter(Boolean)
+
+      if (values.length === 0) {
+        return null
+      }
 
       return [
         key,
         values.length > 1 ? values : values[0]
       ]
-    })
+    }).filter(Boolean)
 
     return Object.fromEntries(relationships)
   }
