@@ -45,7 +45,8 @@ export default class {
     }
 
     const relationships = Object.entries(object.relationships).map(([key, { data }]) => {
-      data = Array.isArray(data) ? data : [data]
+      const isManyRelationship = Array.isArray(data)
+      data = isManyRelationship ? data : [data]
       data = data.filter(Boolean)
 
       const values = data.map((child) => {
@@ -64,7 +65,7 @@ export default class {
 
       return [
         key,
-        values.length > 1 ? values : values[0]
+        (isManyRelationship || values.length > 1) ? values : values[0]
       ]
     }).filter(Boolean)
 
