@@ -317,4 +317,48 @@ describe('JsonApiResponseConverter converts', () => {
       title: 'This project is awesome'
     })
   })
+
+  test('has_many with only 1 child', () => {
+    const response = {
+      data: [
+        {
+          id: '1',
+          type: 'articles',
+          attributes: {
+            title: 'This project is awesome'
+          },
+          relationships: {
+            comments: {
+              data: [
+                { id: '1', type: 'comment' }
+              ]
+            }
+          }
+        }
+      ],
+
+      included: [
+        {
+          id: '1',
+          type: 'comment',
+          attributes: {
+            body: 'First!'
+          }
+        }
+      ]
+    }
+
+    expect(new JsonApiResponseConverter(response).formattedResponse).toEqual([
+      {
+        id: '1',
+        title: 'This project is awesome',
+        comments: [
+          {
+            id: '1',
+            body: 'First!'
+          }
+        ]
+      }
+    ])
+  })
 })
