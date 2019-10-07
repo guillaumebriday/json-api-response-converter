@@ -52,21 +52,94 @@ describe('JsonApiResponseConverter converts', () => {
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual([
       {
-        id: '1',
+        id: 1,
         title: 'This project is awesome',
 
         author: {
-          id: '1',
+          id: 1,
           name: 'Anakin'
         },
 
         comments: [
           {
-            id: '1',
+            id: 1,
             body: 'First!'
           },
           {
-            id: '2',
+            id: 2,
+            body: 'Second!'
+          }
+        ]
+      }
+    ])
+  })
+
+  test('string ids response', () => {
+    const response = {
+      data: [
+        {
+          id: 'id_1',
+          type: 'articles',
+          attributes: {
+            title: 'This project is awesome'
+          },
+          relationships: {
+            author: {
+              data: { id: 'id_1', type: 'author' }
+            },
+
+            comments: {
+              data: [
+                { id: 'id_1', type: 'comment' },
+                { id: 'id_2', type: 'comment' }
+              ]
+            }
+          }
+        }
+      ],
+
+      included: [
+        {
+          id: 'id_1',
+          type: 'author',
+          attributes: {
+            name: 'Anakin'
+          }
+        },
+        {
+          id: 'id_1',
+          type: 'comment',
+          attributes: {
+            body: 'First!'
+          }
+        },
+        {
+          id: 'id_2',
+          type: 'comment',
+          attributes: {
+            body: 'Second!'
+          }
+        }
+      ]
+    }
+
+    expect(new JsonApiResponseConverter(response).formattedResponse).toEqual([
+      {
+        id: 'id_1',
+        title: 'This project is awesome',
+
+        author: {
+          id: 'id_1',
+          name: 'Anakin'
+        },
+
+        comments: [
+          {
+            id: 'id_1',
+            body: 'First!'
+          },
+          {
+            id: 'id_2',
             body: 'Second!'
           }
         ]
@@ -122,21 +195,21 @@ describe('JsonApiResponseConverter converts', () => {
     }
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual({
-      id: '1',
+      id: 1,
       title: 'This project is awesome',
 
       author: {
-        id: '1',
+        id: 1,
         name: 'Anakin'
       },
 
       comments: [
         {
-          id: '1',
+          id: 1,
           body: 'First!'
         },
         {
-          id: '2',
+          id: 2,
           body: 'Second!'
         }
       ]
@@ -184,15 +257,15 @@ describe('JsonApiResponseConverter converts', () => {
     }
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual({
-      id: '1',
+      id: 1,
       title: 'This project is awesome',
       comments: [
         {
-          id: '1',
+          id: 1,
           body: 'First!'
         },
         {
-          id: '2',
+          id: 2,
           body: 'Second!'
         }
       ]
@@ -235,7 +308,7 @@ describe('JsonApiResponseConverter converts', () => {
     }
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual({
-      id: '1',
+      id: 1,
       title: 'This project is awesome'
     })
   })
@@ -264,7 +337,7 @@ describe('JsonApiResponseConverter converts', () => {
     }
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual({
-      id: '1',
+      id: 1,
       title: 'This project is awesome'
     })
   })
@@ -313,7 +386,7 @@ describe('JsonApiResponseConverter converts', () => {
     }
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual({
-      id: '1',
+      id: 1,
       title: 'This project is awesome'
     })
   })
@@ -350,11 +423,11 @@ describe('JsonApiResponseConverter converts', () => {
 
     expect(new JsonApiResponseConverter(response).formattedResponse).toEqual([
       {
-        id: '1',
+        id: 1,
         title: 'This project is awesome',
         comments: [
           {
-            id: '1',
+            id: 1,
             body: 'First!'
           }
         ]
