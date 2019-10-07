@@ -29,7 +29,7 @@ export default class {
     }
 
     return {
-      id: object.id,
+      id: this.tryParsingToInteger(object.id),
       ...object.attributes,
       ...this.formatRelationships(object)
     }
@@ -82,5 +82,20 @@ export default class {
     return this.included.find((relationship) => {
       return relationship.type === object.type && relationship.id === object.id
     })
+  }
+
+  /**
+   * Tries parsing value to Integer; returns untouched value if it fails
+   *
+   * @returns {String|Number} The parsed value
+   */
+  tryParsingToInteger (originalValue) {
+    const integer = parseInt(originalValue)
+
+    if (integer.toString() === originalValue) {
+      return integer
+    }
+
+    return originalValue
   }
 }
