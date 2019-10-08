@@ -83,21 +83,21 @@ console.log(data)
 /**
 [
   {
-    id: '1',
+    id: 1,
     title: 'This project is awesome',
 
     author: {
-      id: '1',
+      id: 1,
       name: 'Anakin'
     },
 
     comments: [
       {
-        id: '1',
+        id: 1,
         body: 'First!'
       },
       {
-        id: '2',
+        id: 2,
         body: 'Second!'
       }
     ]
