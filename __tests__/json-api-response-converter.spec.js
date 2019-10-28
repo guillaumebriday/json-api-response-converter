@@ -1,4 +1,4 @@
-import JsonApiResponseConverter from '../src/index'
+import JsonApiResponseConverter from '../src/main.js'
 
 describe('JsonApiResponseConverter converts', () => {
   test('array response', () => {
