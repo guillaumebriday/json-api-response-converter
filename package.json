@@ -1,9 +1,9 @@
 {
   "name": "json-api-response-converter",
   "version": "1.4.0",
-  "main": "dist/json-api-response-converter.js",
-  "browser": "dist/json-api-response-converter.umd.js",
+  "main": "dist/json-api-response-converter.umd.js",
   "module": "dist/json-api-response-converter.es.js",
+  "unpkg": "dist/json-api-response-converter.min.js",
   "repository": "git@github.com:guillaumebriday/json-api-response-converter.git",
   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
   "homepage": "https://github.com/guillaumebriday/json-api-response-converter",
@@ -16,7 +16,10 @@
   "scripts": {
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "test": "BABEL_ENV=test jest",
-    "build": "BABEL_ENV=build rollup -c",
+    "build:browser": "rollup -c build/rollup.config.browser.js",
+    "build:es": "rollup -c build/rollup.config.es.js",
+    "build:umd": "rollup -c build/rollup.config.umd.js",
+    "build": "yarn build:browser && yarn build:es && yarn build:umd",
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
