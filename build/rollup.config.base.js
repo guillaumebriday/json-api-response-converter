@@ -5,8 +5,7 @@ import babel from 'rollup-plugin-babel'
 export default {
   input: 'src/main.js',
   output: {
-    name: 'JsonApiResponseConverter',
-    exports: 'named'
+    name: 'JsonApiResponseConverter'
   },
   plugins: [
     resolve(),
