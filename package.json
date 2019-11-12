@@ -1,6 +1,6 @@
 {
   "name": "json-api-response-converter",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "main": "dist/json-api-response-converter.umd.js",
   "module": "dist/json-api-response-converter.es.js",
   "unpkg": "dist/json-api-response-converter.min.js",
