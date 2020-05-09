@@ -4,9 +4,9 @@
 ![](https://github.com/guillaumebriday/json-api-response-converter/workflows/Lint/badge.svg)
 ![](https://github.com/guillaumebriday/json-api-response-converter/workflows/Test/badge.svg)
 [![](https://img.shields.io/npm/dt/json-api-response-converter.svg)](https://www.npmjs.com/package/json-api-response-converter)
-[![](https://img.shields.io/npm/bt/json-api-response-converter.svg)](https://www.npmjs.com/package/json-api-response-converter)
 [![](https://img.shields.io/npm/v/json-api-response-converter.svg)](https://www.npmjs.com/package/json-api-response-converter)
 [![](https://img.shields.io/github/license/guillaumebriday/json-api-response-converter.svg)](https://github.com/guillaumebriday/json-api-response-converter)
+[![](https://api.netlify.com/api/v1/badges/f48191db-a459-4ab4-849f-10ea970915af/deploy-status)](https://json-api-response-converter.netlify.app)
 
 ## Features
 
